@@ -9,6 +9,20 @@ import snowIcon from '../assets/snow.png'
 import windIcon from '../assets/wind.png'
 
 export default function Weather(){
+
+    async function search(city) {
+        try {
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_APP_ID}`;
+            const response = await fetch(url);
+            const data=await response.json();
+            console.log(data)
+        } catch (error) {
+            
+        }
+    }
+
+    search('london')
+
     return(
         <div className="weather">
             <div className="search-bar">
